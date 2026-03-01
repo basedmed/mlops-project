@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  mlflow:
+    image: mlops-image
+    container_name: mlflow-server
+    working_dir: /app
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./mlflow:/mlflow
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --serve-artifacts
+      --artifacts-destination /mlflow/mlruns
+      --default-artifact-root mlflow-artifacts:/
+

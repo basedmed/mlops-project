@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# MLflow
+mlruns/
+mlflow.db
+
+# Data
+data/raw/*.csv
+data/processed/
+
+# OS / Editor
+.DS_Store
+.vscode/
