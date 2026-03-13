@@ -28,8 +28,7 @@ jobs:
       - name: Lint (flake8)
         run: flake8 .
 
-      - name: Run tests (pytest)
-        run: pytest -q
+     - name: Run tests (pytest)  run: PYTHONPATH=. pytest -q
 
       - name: Data Quality Gate
         run: python src/data/validate_data.py data/raw/creditcard_sample.csv
