@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from pydantic import BaseModel  
+from pydantic import BaseModel
 import mlflow
 import pandas as pd
 
@@ -9,9 +9,7 @@ mlflow.set_tracking_uri("http://localhost:5001")
 MODEL_NAME = "creditcard_fraud_best_model"
 
 # charger le modèle Production
-model = mlflow.pyfunc.load_model(
-    model_uri=f"models:/{MODEL_NAME}/Production"
-)
+model = mlflow.pyfunc.load_model(model_uri=f"models:/{MODEL_NAME}/Production")
 
 app = FastAPI(
     title="Credit Card Fraud Detection API",
