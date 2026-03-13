@@ -1,0 +1,15 @@
+experiment_name: creditcard-fraud-final
+random_state: 42
+test_size: 0.2
+
+models:
+  logistic_regression:
+    max_iter: 5000
+
+  random_forest:
+    n_estimators: 200
+    class_weight: balanced
+
+promotion:
+  min_pr_auc: 0.80
+  registered_model_name: creditcard_fraud_best_model

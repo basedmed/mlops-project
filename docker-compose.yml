@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   mlflow:
     image: mlops-image
@@ -18,3 +16,14 @@ services:
       --artifacts-destination /mlflow/mlruns
       --default-artifact-root mlflow-artifacts:/
 
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    container_name: fraud-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MLFLOW_TRACKING_URI=http://host.docker.internal:5001
+    depends_on:
+      - mlflow
